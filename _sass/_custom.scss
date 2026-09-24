@@ -1,0 +1,65 @@
+/******************************************************************************
+ * Site-local overrides (not part of al_folio_core)
+ ******************************************************************************/
+
+// Tighten the gap the theme leaves under the subtitle, then pull the
+// about-page profile photo up so it sits close to the name/subtitle header
+// instead of floating noticeably below it.
+.post-header .desc {
+  margin-bottom: 0.25rem;
+}
+
+.profile.float-right,
+.profile.float-left {
+  margin-top: -2rem;
+}
+
+// Inline contact row (email / GitHub / LinkedIn / ...) shown under the bio
+// text on the about page, reusing the `{% social_links %}` tag's markup.
+// Styled to match the theme's own bottom `.social .contact-icons` row
+// (plain icons, no fill, color shifts to the theme color on hover) instead
+// of introducing a new visual language.
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--global-divider-color);
+
+  a {
+    font-size: 1.4rem;
+    line-height: 1;
+
+    i::before {
+      color: var(--global-text-color-light);
+      transition: color 0.15s ease-in-out;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      i::before {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+// Publication buttons listed in a bib entry's `coming_soon` field (see the
+// local _layouts/bib.liquid override): same look as the theme's buttons, but
+// with no hover highlight and a not-allowed cursor, since they don't link anywhere yet.
+.publications ol.bibliography li .links a.btn.coming-soon {
+  cursor: not-allowed;
+
+  &:hover {
+    color: var(--global-text-color);
+    border-color: var(--global-text-color);
+  }
+}
+
+// Make my own name (the theme wraps it in <em> and underlines it) bold too.
+.publications ol.bibliography li .author > em {
+  font-weight: bold;
+}

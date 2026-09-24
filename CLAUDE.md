@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## This site
+
+This repo (`YOLO12138/yolo12138.github.io`) is Yuzhi Fan's personal academic site, built from the al-folio v1.x starter. It deploys as a GitHub user page, so `_config.yml` has `url: https://yolo12138.github.io` and a **blank** `baseurl`. The upstream `/al-folio` baseurl in the commands below and in `AGENTS.md` does not apply here: the dev server is at `http://localhost:4000/` and a plain `bundle exec jekyll build` is correct.
+
+As a user site, it keeps a few deliberate local overrides of gem-owned files (`_layouts/bib.liquid`, `_sass/_custom.scss`, `assets/css/main.scss`), tracked in `.al-folio-overrides.yml`. The upstream style-contract check in `unit-tests.yml` flags these; that failure is expected and does not block deploys.
+
 @AGENTS.md
 
 `AGENTS.md` (imported above) is the **authoritative** agent entry point: change routing, the stop sign for gem-owned paths, the three silent failure modes, and the validated command set. Keep it short and ecosystem-neutral. Cross-repo architecture — the wrapper/tag/gem delegation table, feature gating, the v1 config contract, local overrides — lives in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); area-to-gem ownership lives in [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md).

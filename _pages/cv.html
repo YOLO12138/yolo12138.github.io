@@ -1,0 +1,22 @@
+---
+layout: none
+permalink: /cv/
+title: CV
+nav: true
+nav_order: 3
+sitemap: false
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- The navbar only links to pages, so this page just forwards the "CV" nav item to the PDF. -->
+    <title>CV</title>
+    <meta http-equiv="refresh" content="0; url={{ '/assets/pdf/cv.pdf' | relative_url }}" />
+    <link rel="canonical" href="{{ '/assets/pdf/cv.pdf' | relative_url }}" />
+  </head>
+  <body>
+    <p><a href="{{ '/assets/pdf/cv.pdf' | relative_url }}">Open CV (PDF)</a></p>
+  </body>
+</html>
