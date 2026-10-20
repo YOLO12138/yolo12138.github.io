@@ -9,9 +9,14 @@
   margin-bottom: 0.25rem;
 }
 
-.profile.float-right,
-.profile.float-left {
-  margin-top: -2rem;
+// Only on wide screens. Below that the photo is stacked under the subtitle
+// (< 576px) or floats beside a long one-line subtitle (tablet widths), and the
+// negative margin would pull it up over the end of that subtitle.
+@media (min-width: 992px) {
+  .profile.float-right,
+  .profile.float-left {
+    margin-top: -2rem;
+  }
 }
 
 // Inline contact row (email / GitHub / LinkedIn / ...) shown under the bio
@@ -25,6 +30,7 @@
   align-items: center;
   gap: 1.4rem;
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--global-divider-color);
 
@@ -59,7 +65,22 @@
   }
 }
 
+// Wrap the expanded BibTeX entry instead of making it scroll sideways, which
+// is awkward on phones.
+.publications ol.bibliography li .bibtex pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 // Make my own name (the theme wraps it in <em> and underlines it) bold too.
 .publications ol.bibliography li .author > em {
   font-weight: bold;
+}
+
+// Hide the theme's copyright / "Powered by" footer bar. al_folio_core has no
+// config switch for it, so it is hidden here instead of shadowing
+// _includes/footer.liquid.
+footer.fixed-bottom,
+footer.sticky-bottom {
+  display: none;
 }
